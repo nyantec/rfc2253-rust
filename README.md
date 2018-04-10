@@ -1,6 +1,7 @@
 rfc2253-rust
 ============
 
+[![Build Status](https://travis-ci.org/nyantec/rfc2253-rust.svg?branch=master)](https://travis-ci.org/nyantec/rfc2253-rust)
 ![Crates.io](https://img.shields.io/crates/v/rfc2253.svg)
 
 A small rust library that parses [RFC2253](https://www.ietf.org/rfc/rfc2253.txt)
