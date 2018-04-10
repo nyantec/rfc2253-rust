@@ -1,6 +1,8 @@
 rfc2253-rust
 ============
 
+![Crates.io](https://img.shields.io/crates/v/rfc2253.svg)
+
 A small rust library that parses [RFC2253](https://www.ietf.org/rfc/rfc2253.txt)
 encoded distinguished name strings. You can use this to decode the output of
 openssl's `x509_NAME_print_ex(..., XN_FLAG_RFC2253)` or nginx's `$ssl_client_s_dn`
