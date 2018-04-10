@@ -1,28 +1,37 @@
 rfc2253-rust
 ============
 
-A small rust library that parses [RFC2253 - UTF-8 String Representation of Distinguished Names](https://www.ietf.org/rfc/rfc2253.txt).
-You can use this to decode the output of openssl's `x509_NAME_print_ex(..., XN_FLAG_RFC2253)`
-or nginx's `$ssl_client_s_dn` and `$ssl_client_i_dn` variables.
+A small rust library that parses [RFC2253](https://www.ietf.org/rfc/rfc2253.txt)
+encoded distinguished name strings. You can use this to decode the output of
+openssl's `x509_NAME_print_ex(..., XN_FLAG_RFC2253)` or nginx's `$ssl_client_s_dn`
+and `$ssl_client_i_dn` variables.
 
 
 Usage
 -----
 
+Add this to your `Cargo.toml` file:
+
+    [dependencies]
+    rfc2253 = "*"
+
 The example below shows how to parse a RFC2253 encoded distinguished name.
 
-  fn main() {
-    let dn_str = "C=DE,CN=Hans Tester,OU=ACME Inc.,O=ACME Inc.,L=Berlin,ST=Berlin";
-    let dn = rfc2253::parse_distinguished_name_str(dn_str).unwrap();
+    extern crate rfc2253;
 
-    assert!(dn.attributes.len() == 6);
-    assert!(dn.attributes.get("CN").unwrap() == "Hans Tester");
-    assert!(dn.attributes.get("C").unwrap() == "DE");
-    assert!(dn.attributes.get("L").unwrap() == "Berlin");
-    assert!(dn.attributes.get("ST").unwrap() == "Berlin");
-    assert!(dn.attributes.get("O").unwrap() == "ACME Inc.");
-    assert!(dn.attributes.get("OU").unwrap() == "ACME Inc.");
-  }
+    fn main() {
+      let dn_str = "C=DE,CN=Hans Tester,OU=ACME Inc.,O=ACME Inc.,L=Berlin,ST=Berlin";
+      let dn = rfc2253::parse_distinguished_name_str(dn_str).unwrap();
+
+      println!("{:?}", dn);
+      assert!(dn.attributes.len() == 6);
+      assert!(dn.attributes.get("CN").unwrap() == "Hans Tester");
+      assert!(dn.attributes.get("C").unwrap() == "DE");
+      assert!(dn.attributes.get("L").unwrap() == "Berlin");
+      assert!(dn.attributes.get("ST").unwrap() == "Berlin");
+      assert!(dn.attributes.get("O").unwrap() == "ACME Inc.");
+      assert!(dn.attributes.get("OU").unwrap() == "ACME Inc.");
+    }
 
 
 Build
