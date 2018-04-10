@@ -55,7 +55,7 @@ After you have made any changes to the code, run the test suite by executing
 License
 -------
 
-    Copyright © 2018 Nyantec GmbH <oss@nyantec.com>
+    Copyright © 2018 nyantec GmbH <oss@nyantec.com>
 
     Authors:
       Paul Asmuth <asm@nyantec.com>
