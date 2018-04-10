@@ -1,0 +1,8 @@
+[package]
+name = "rfc2253"
+version = "0.1.0"
+authors = ["The rfc2253-rust Authors <oss@nyantec.com>"]
+
+[lib]
+name = "rfc2253"
+path = "src/rfc2253.rs"
