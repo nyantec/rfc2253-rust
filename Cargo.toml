@@ -1,7 +1,9 @@
 [package]
 name = "rfc2253"
+description = "A RFC2253 parser written in Rust Edit"
 version = "0.1.0"
 authors = ["The rfc2253-rust Authors <oss@nyantec.com>"]
+license = "MirOS"
 
 [lib]
 name = "rfc2253"
